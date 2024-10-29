@@ -1,6 +1,7 @@
 name: release
 # Run this job whenever a push is made that starts with 'v'
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
