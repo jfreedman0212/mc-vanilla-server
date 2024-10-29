@@ -10,23 +10,6 @@ jobs:
       steps:
         - name: Checkout Repository
           uses: actions/checkout@v3
-        - name: Create Client Modpack
-          working-directory: modpack
-          run: zip -r client.zip *
-        - name: Move Client Modpack
-          run: mv modpack/client.zip .
-        - name: Download Client Mods from Curseforge
-          working-directory: modpack
-          run: python3 ../print_curseforge_urls.py | wget -q -i - -P mods/ --content-disposition --show-progress
-        - name: Download Server Mods from Curseforge
-          working-directory: modpack
-          run: cat ../server_only_mods.txt | wget -q -i - -P mods/ --content-disposition --show-progress
-        - name: Setup appropriate folder name for server pack
-          run: |
-            mv modpack/overrides/config modpack/config
-            rm -rf overrides
-        - name: Create Server pack
-          run: zip -r server.zip modpack/config modpack/mods
         - name: Create a Release
           uses: softprops/action-gh-release@v1
           env:
@@ -35,8 +18,6 @@ jobs:
             files: |
               ops.json
               whitelist.json
-              client.zip
-              server.zip
         - name: Setup Flyctl
           uses: superfly/flyctl-actions/setup-flyctl@master
         - name: Deploy to Fly.io
