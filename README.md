@@ -9,6 +9,8 @@ and hosted on [Fly.io](https://fly.io) for my friends. The repo has a couple use
 
 The crux of this setup comes from [Geoff Bourne's Minecraft Server Docker image](https://github.com/itzg/docker-minecraft-server), which is SUPER helpful for getting this up and running. If you're thinking of setting up your own server, I highly recommend using this!
 
+TODO: copy readme from other repo
+
 # Connecting to the server as a user
 
 TODO:
